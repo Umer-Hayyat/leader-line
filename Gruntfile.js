@@ -125,7 +125,7 @@ module.exports = grunt => {
             // some version of cheerio have problem: <tag></tag> -> <tag/>
             defsSrc = defsSrc.replace(/<([^>\s]+)([^>]*)><\/\1>/g, '<$1$2/>');
             code.DEFS_HTML = '\'' +
-              htmlclean(`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="${DEFS_ID}">` +
+              htmlclean(`<svg xmlns="http://www.w3.org/2000/svg" id="${DEFS_ID}">` +
                   `<style><![CDATA[${cssSrc}]]></style><defs>${defsSrc}</defs></svg>`)
                 .replace(/\'/g, '\\\'') + '\'';
             Object.keys(DEFINED_VAR).forEach(codeVar => { code[codeVar] = getCode(DEFINED_VAR[codeVar]); });
